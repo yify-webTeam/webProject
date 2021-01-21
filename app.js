@@ -13,14 +13,14 @@ const router = require('./routes');
 
 const app = new Koa();
 
-app.use(compose([
-    logger(),
-    staticFiles(path.join(__dirname, 'assets')), // 注册静态目录
-    views('views', { map: { html: 'ejs' } }), // 注册ejs模板引擎
-    bodyParser(),
-    router.routes(), // 启用路由
-    router.allowedMethods()
-]));
+// app.use(compose([
+//     logger(),
+//     staticFiles(path.join(__dirname, 'assets')), // 注册静态目录
+//     views('views', { map: { html: 'ejs' } }), // 注册ejs模板引擎
+//     bodyParser(),
+//     router.routes(), // 启用路由
+//     router.allowedMethods()
+// ]));
 
 app.listen(conf.server.port);
 console.log('server is listen in 3001');
