@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- html hyper text markup langu -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div id="app">
+        <div class="title"><%=title%>登陆</div>
+        <div class="name"><label for="name_input">账号</label><input type="text" name="" id="name_input" placeholder="请输入账号"></div>
+        <div class="pass"><label for="pass_input">密码</label><input type="password" name="" id="pass_input" placeholder="请输入密码"></div>
+        <div class="btn">
+            <button id="login">登陆</button>
+            <button id="reset">重置</button>
+            <a href="http://localhost:3001/register"><span>去注册</span></a>
+        </div>
+        <div class="tips">用帐密:root;mastermaster登陆</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

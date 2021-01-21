@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csrf</title>
+    <link rel="stylesheet" href="/css/csrf.css">
+</head>
+
+<body>
+    referer：<%=referer%>
+    <h1>CSRF test</h1>
+    <div class="ui-issue-box" id="j-post_field">
+        <div class="fullscreen-container">
+            <div class="fullscreen-container-inner">
+                <div class="operation"><a href="javascript:void(0);" id="j-face_trigger" class="j-face_trigger"><i
+                            class="editor-icon editor-icon-face"></i>表情</a> <a href="javascript:void(0);"
+                        id="j-image_trigger" class="j-image_trigger" style="position:relative;margin-right:7px">
+                        <div class="tip hide"></div><i class="editor-icon editor-icon-img"></i>图片<form
+                            enctype="multipart/form-data" action="//sw4.bbs.duoyi.com/images" method="POST" class="j-imgUpload_form"
+                            style="display:inline-block"><input type="file" multiple="multiple"
+                                accept="image/gif,image/jpeg,image/jpg,image/png,image/bmp" name="upload-file"
+                                class="j-imgUpload_input"
+                                style="display:block;cursor:pointer;margin:0;padding:0;width:45px;height:14px;position:absolute;left:0;top:0;opacity:0;filter:alpha(opacity=0);font-size:0"
+                                title=" "> <input type="hidden" name="imageInputName" value="upload-file"></form>
+                    </a><a href="javascript:void(0);" id="j-topic_trigger" class="j-topic_trigger"><i
+                            class="editor-icon editor-icon-topic"></i>话题</a> <a href="javascript:void(0);"
+                        id="j-at_trigger" class="j-at_trigger"><i class="editor-icon editor-icon-at"></i>好友</a> <a
+                        href="javascript:void(0);" class="j-format_trigger"><i
+                            class="editor-icon editor-icon-format"></i>格式</a>
+                    <div id="j-videoInsert_frame" class="j-videoInsert_frame" style="display:inline"></div>
+                    <div id="j-imgUpload_frame" class="j-imgUpload_frame" style="display: none;"></div><a
+                        href="javascript:;" class="edit-btn" style="display:none"><i
+                            class="editor-icon editor-icon-small-screen"></i>缩小返回</a>
+                </div>
+            </div>
+            <div class="edui-container" style="width: 860px; z-index: 1;">
+                <div style="height: 37px;"></div>
+                <div class="edui-toolbar" style="display: none; width: 0px; z-index: 2; position: fixed; top: 0px;">
+                    <div class="edui-btn-toolbar" unselectable="on" onmousedown="return false">
+                        <div class="edui-btn edui-btn-redo " unselectable="on" onmousedown="return false"
+                            data-original-title="重做">
+                            <div unselectable="on" class="edui-icon-redo edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-btn edui-btn-undo " unselectable="on" onmousedown="return false"
+                            data-original-title="撤销">
+                            <div unselectable="on" class="edui-icon-undo edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-separator" unselectable="on" onmousedown="return false"></div>
+                        <div class="edui-btn  edui-btn-name-fontfamily edui-combobox" unselectable="on"
+                            onmousedown="return false" data-original-title="字体"> <span unselectable="on"
+                                onmousedown="return false" class="edui-button-label">字体</span><span
+                                class="edui-button-spacing"></span><span unselectable="on" onmousedown="return false"
+                                class="edui-caret"></span>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-btn  edui-btn-name-fontsize edui-combobox" unselectable="on"
+                            onmousedown="return false" data-original-title="字号"> <span unselectable="on"
+                                onmousedown="return false" class="edui-button-label">字号</span><span
+                                class="edui-button-spacing"></span><span unselectable="on" onmousedown="return false"
+                                class="edui-caret"></span>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-separator" unselectable="on" onmousedown="return false"></div>
+                        <div class="edui-btn edui-btn-bold " unselectable="on" onmousedown="return false"
+                            data-original-title="加粗">
+                            <div unselectable="on" class="edui-icon-bold edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-btn edui-btn-italic " unselectable="on" onmousedown="return false"
+                            data-original-title="斜体">
+                            <div unselectable="on" class="edui-icon-italic edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-btn edui-btn-underline " unselectable="on" onmousedown="return false"
+                            data-original-title="下划线">
+                            <div unselectable="on" class="edui-icon-underline edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-separator" unselectable="on" onmousedown="return false"></div>
+                        <div class="edui-splitbutton edui-splitbutton-forecolor" unselectable="on"
+                            data-original-title="字体颜色">
+                            <div class="edui-btn" unselectable="on">
+                                <div unselectable="on" class="edui-icon-forecolor edui-icon"></div>
+                                <div class="edui-splitbutton-color-label"></div>
+                            </div>
+                            <div unselectable="on" class="edui-btn edui-dropdown-toggle">
+                                <div unselectable="on" class="edui-caret"></div>
+                            </div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-separator" unselectable="on" onmousedown="return false"></div>
+                        <div class="edui-btn edui-btn-justifyleft " unselectable="on" onmousedown="return false"
+                            data-original-title="居左对齐">
+                            <div unselectable="on" class="edui-icon-justifyleft edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-btn edui-btn-justifycenter " unselectable="on" onmousedown="return false"
+                            data-original-title="居中对齐">
+                            <div unselectable="on" class="edui-icon-justifycenter edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                        <div class="edui-btn edui-btn-justifyright " unselectable="on" onmousedown="return false"
+                            data-original-title="居右对齐">
+                            <div unselectable="on" class="edui-icon-justifyright edui-icon"></div>
+                            <div class="edui-tooltip" unselectable="on" onmousedown="return false" style="z-index: 2;">
+                                <div class="edui-tooltip-arrow" unselectable="on" onmousedown="return false"></div>
+                                <div class="edui-tooltip-inner" unselectable="on" onmousedown="return false"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edui-dialog-container"></div>
+                </div>
+                <div class="edui-editor-body">
+                    <div id="editor-trigger" class=" edui-body-container"
+                        style="width: 840px; max-height: 187px; min-height: 187px; z-index: 1;" contenteditable="true">
+                        <p><br></p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-pop-box skin-name-list hide">
+                <p class="title">想用什么话题</p>
+                <div></div>
+            </div>
+            <div class="ui-pop-box skin-name-list hide">
+                <p class="title">选择最近@的人或直接输入</p>
+                <div></div>
+            </div>
+        </div>
+        <div class="footer-operation"><a href="javascript:;" class="edit-btn"><i
+                    class="editor-icon editor-icon-screen"></i>全屏编辑 </a><a href="javascript:;" class="issue-btn"
+                id="j-post_btn">回复<div class="u-login-icon"></div></a></div>
+    </div>
+    <script src="/js/jq.min.js"></script>
+    <script src="/js/csrf.js"></script>
+</body>
+
+</html>
